@@ -1,0 +1,59 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+.row > div {
+    margin: 15px auto;
+}
+
+.thumb {
+    position: relative;
+    margin: 0 auto;
+    max-width: 533px;
+}
+
+.hover-opaque {
+    background: #000;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+}
+
+.hover-opaque i {
+    position: absolute;
+    text-align: center;
+    color: red;
+    top: 50%;
+    right: 50%;
+    margin: -12px;
+    border: 1px solid green;
+
+}
+
+.glyphicon {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 45%;
+    font-size: 20px;
+    margin: -15px;
+    opacity: 0;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+}
+
+
+
+.thumb:hover .hover-opaque {
+    opacity: 0.5;
+}
+
+.thumb:hover .glyphicon {
+    opacity: 1;
+}
+
