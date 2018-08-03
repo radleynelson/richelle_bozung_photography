@@ -10,22 +10,48 @@ class OverallPortfolio extends React.Component {
     super(props);
     this.state = {
       portfolioImages: [],
+      portfolioLinker: [],
     }
   }
+  findMatch(name){
+    let match = '';
+    for (let iCount = 0; iCount < this.state.portfolioLinker.length; iCount ++){
+      if(name.toLowerCase() == this.state.portfolioLinker[iCount].name.toLowerCase()){
+        match = this.state.portfolioLinker[iCount].id;
+      }
+    }
+    return match
+  }
   componentDidMount(){
-    axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/pages/48').then(res => {
-      let photos = [];
-      res.data.acf.portfolio.forEach(image => {
-        photos.push(
-            {
-              photo: image.sizes.large,
-              type: image.description,
-            }
-          )
-          this.setState(({
-            portfolioImages: photos,
-          }))
-      })
+    axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/galleries').then(res => {
+      let temp = []
+      for (let iCount = 0; iCount < res.data.length; iCount++){
+        temp.push({
+          name: res.data[iCount].title.rendered,
+          id: res.data[iCount].id
+        })
+      }
+      this.setState(({
+        portfolioLinker: temp
+      }));
+    }).then(nothing => {
+      axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/pages/48').then(res => {
+        let photos = [];
+        res.data.acf.portfolio.forEach(image => {
+          let match = this.findMatch(image.description);
+
+          photos.push(
+              {
+                photo: image.sizes.large,
+                type: image.description,
+                id: match,
+              }
+            )
+            this.setState(({
+              portfolioImages: photos,
+            }))
+        })
+      });
     })
   }
   render(){
@@ -37,7 +63,7 @@ class OverallPortfolio extends React.Component {
         <div className="row">
         {
           this.state.portfolioImages.map((image,index) => (
-            <PortfolioImage key={index} type={image.type} image={image.photo} />
+            <PortfolioImage key={index} type={image.type} id={image.id} image={image.photo} />
           ))
         }
         </div>

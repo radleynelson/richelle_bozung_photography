@@ -9,6 +9,7 @@ import OverallPortfolio from './Components/OverallPortfolio.js';
 import Contact from './Components/Contact.js';
 import About from './Components/About.js';
 import TypePortfolio from './Components/TypePortfolio.js';
+import Blog from './Components/Blog.js';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
               <Route path='/Contact' component={Contact} exact={true} />
               <Route path='/About' component={About} exact={true} />
               <Route path='/Portfolio/:id' component={TypePortfolio} exact={true} />
+              <Route path='/RichelleBozung/Blog' component={Blog} exact={true} />
             </Switch>
           </div>
           <Footer />

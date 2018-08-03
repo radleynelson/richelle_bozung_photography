@@ -18,7 +18,7 @@ class Carousel extends React.Component{
       let photos  = [];
       res.data.forEach(gallery => {
         photos.push({
-          photo: gallery.better_featured_image.source_url,
+          photo: gallery.better_featured_image.media_details.sizes["twentyseventeen-featured-image"].source_url,
           message: gallery.title.rendered,
           id: gallery.id,
         })

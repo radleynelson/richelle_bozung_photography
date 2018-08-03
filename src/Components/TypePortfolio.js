@@ -15,7 +15,7 @@ class TypePortfolio extends React.Component{
       let photos = [];
       console.log(this.props);
       res.data.acf.images.forEach(image => {
-        photos.push({photo: image.url})
+        photos.push({photo: image.sizes["twentyseventeen-featured-image"]})
       })
       this.setState(({
         images: photos,

@@ -13,8 +13,8 @@ class Home extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      HomeOverview: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a",
-      BlogOverview: "Professional Photographer in Durham, Chapel Hill Area.",
+      HomeOverview: "",
+      BlogOverview: "",
       Portfolios: [],
     }
   }
@@ -35,11 +35,19 @@ class Home extends React.Component {
       })
       console.log('Test',galleries);
       this.setState(({
-        HomeOverview: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a",
-        BlogOverview: "Professional Photographer in Durham, Chapel Hill Area.",
         Portfolios: galleries,
 
       }));
+    }).catch(err => {
+      console.log(err);
+    });
+
+    axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/pages/70').then(res => {
+      this.setState(({
+        BlogOverview: res.data.acf.sub_title,
+        HomeOverview: res.data.acf.site_summary,
+        ContactMe: res.data.acf.contact_me,
+      }))
     }).catch(err => {
       console.log(err);
     });
@@ -76,9 +84,7 @@ class Home extends React.Component {
   <div className="container">
       <div className="text-center">
           <h3>
-              Blah blah golf gasdf kfjdki i dfg ;adifj adf Blah blah golf gasdf kfjdki i dfg ;adifj adf
-              Blah blah golf gasdf kfjdki i dfg ;adifj adf
-              Blah blah golf gasdf kfjdki i dfg ;adifj adf
+              {this.state.ContactMe}
           </h3>
           <Link to='/Contact'><button type="button" className="btn btn-primary outline btn-lg contactButton" style={{borderColor: 'black ', color: 'black'}}>Contact</button></Link>
       </div>

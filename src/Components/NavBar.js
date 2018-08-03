@@ -20,7 +20,6 @@ class NavBar extends React.Component{
                 <ul className="nav navbar-nav navbar-right">
                     <li><NavLink to="/">HOME</NavLink></li>
                     <li><NavLink to='/Portfolio' replace>PORTFOLIO</NavLink></li>
-                    <li><a href="HTML/Blog.html">BLOG</a></li>
                     <li><NavLink to="/About">ABOUT</NavLink></li>
                     <li><NavLink to="/Contact">CONTACT</NavLink></li>
                 </ul>
