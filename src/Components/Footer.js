@@ -13,7 +13,7 @@ class Footer extends React.Component {
                     <div className="text-center">
                         <a target="_blank" style={{color: 'black'}} href="https://www.instagram.com/photos.by.richelle/"><i className="fa fa-lg fa-instagram" aria-hidden="true" style={{marginRight: '5px',}}></i></a>
                         <Link style={{color: 'black'}} to='/Contact'><i className="fa fa-lg fa-envelope-o" aria-hidden="true"></i></Link>
-                        <a target="_blank" style={{color: 'black'}} href="https://www.facebook.com/bryan.bozung"><i className="fa fa-lg fa-facebook" style={{marginLeft:"5px"}} aria-hidden="true"></i></a>
+                        <a target="_blank" style={{color: 'black'}} href="https://www.facebook.com/Photos-By-Richelle-233746063830132/"><i className="fa fa-lg fa-facebook" style={{marginLeft:"5px"}} aria-hidden="true"></i></a>
                     </div>
                 </div>
             </footer>
