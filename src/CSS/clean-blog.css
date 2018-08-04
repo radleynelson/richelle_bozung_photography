@@ -29,7 +29,7 @@ a {
   -moz-transition: all 0.2s;
   transition: all 0.2s; }
   a:focus, a:hover {
-    color: #0085A1; }
+    color: transparent; }
 
 blockquote {
   font-style: italic;
@@ -52,12 +52,12 @@ blockquote {
 
 ::-moz-selection {
   color: #fff;
-  background: #0085A1;
+  background: transparent;
   text-shadow: none; }
 
 ::selection {
   color: #fff;
-  background: #0085A1;
+  background: transparent;
   text-shadow: none; }
 
 img::selection {
@@ -69,7 +69,7 @@ img::-moz-selection {
   background: transparent; }
 
 body {
-  -webkit-tap-highlight-color: #0085A1; }
+  -webkit-tap-highlight-color: transparent; }
 
 #mainNav {
   position: absolute;
@@ -128,11 +128,11 @@ body {
         #mainNav.is-fixed .navbar-brand {
           color: #212529; }
           #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-            color: #0085A1; }
+            color: transparent; }
         #mainNav.is-fixed .navbar-nav > li.nav-item > a {
           color: #212529; }
           #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-            color: #0085A1; }
+            color: transparent; }
       #mainNav.is-visible {
         /* if the user changes the scrolling direction, we show the header */
         -webkit-transform: translate3d(0, 100%, 0);
@@ -216,7 +216,7 @@ header.masthead {
   color: #212529; }
   .post-preview > a:focus, .post-preview > a:hover {
     text-decoration: none;
-    color: #0085A1; }
+    color: transparent; }
   .post-preview > a > .post-title {
     font-size: 30px;
     margin-top: 30px;
@@ -235,7 +235,7 @@ header.masthead {
     color: #212529; }
     .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
       text-decoration: underline;
-      color: #0085A1; }
+      color: transparent; }
 
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
@@ -286,7 +286,7 @@ header.masthead {
   opacity: 1; }
 
 .floating-label-form-group-with-focus label {
-  color: #0085A1; }
+  color: transparent; }
 
 form .form-group:first-child .floating-label-form-group {
   border-top: 1px solid #dee2e6; }
@@ -311,8 +311,8 @@ footer {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .btn-primary {
-  background-color: #0085A1;
-  border-color: #0085A1; }
+  background-color: transparent;
+  border-color: transparent; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     color: #fff;
     background-color: #00657b !important;

@@ -22,7 +22,7 @@ class About extends React.Component {
     axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/pages/52').then(res => {
       this.setState(({
         pageContent: res.data.content.rendered,
-        coverPhoto: res.data.better_featured_image.source_url,
+        coverPhoto: res.data.better_featured_image.media_details.sizes.large.source_url,
         subTitle: res.data.acf.sub_title,
         title: res.data.title.rendered,
       }))

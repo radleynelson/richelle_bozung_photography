@@ -4,6 +4,7 @@ import weddingPrimary from '../images/wedding.jpg';
 import newbornPrimary from '../images/newborn.jpg';
 import familyPrimary from '../images/family.jpg';
 import axios from 'axios';
+import { Glyphicon } from 'react-bootstrap';
 
 class Carousel extends React.Component{
   constructor(props){
@@ -53,7 +54,7 @@ class Carousel extends React.Component{
               </div>
 
               <a className="left carousel-control" href="#myCarousel" data-slide="prev">
-                  <span className="glyphicon glyphicon-chevron-left"></span>
+                  <Glyphicon glyph="star" />
                   <span className="sr-only">Previous</span>
               </a>
               <a className="right carousel-control" href="#myCarousel" data-slide="next">

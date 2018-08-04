@@ -1,9 +1,12 @@
 import React from 'react';
+import {Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import axios from 'axios';
 
 class Contact extends React.Component {
   constructor(props){
     super(props);
     this.handleFormSubmission = this.handleFormSubmission.bind(this);
+    this.handleChange = this.handleChange.bind(this)
     this.state={
       formInfo: {
         Name: '',
@@ -15,27 +18,36 @@ class Contact extends React.Component {
     }
   }
 
-  handleFormSubmission(e) {
-    e.preventDefault()
-    console.log(e);
-    // const FName = e.target.elements.name.value.trim();
-    // const FEmail = e.target.elements.email.value.trim();
-    // const FPhone = e.target.elements.mobile.value.trim();
-    // const FSubject = e.target.elements.subject.value.trim();
-    // const FMessage = e.target.elements.message.value.trim();
-    //
-    // this.setState(() => {
-    //   return {
-    //     formInfo: {
-    //       Name: FName,
-    //       Email: FEmail,
-    //       PhoneNumber: FPhone,
-    //       Subject: FSubject,
-    //       Message: FMessage,
-    //     },
-    //   }
-    // })
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
   }
+
+  handleFormSubmission(e) {
+    e.preventDefault();
+
+    const {Name, Email, PhoneNumber, Subject, Message} = this.state;
+    console.log(e);
+
+    axios.post('https://api.emailjs.com/api/v1.0/email/send',{
+      service_id: 'richelle_photography',
+      template_id: 'template_xEK8Gs83',
+      user_id: 'user_XOzR8DPdCB2BWtXgAV00W',
+      template_params: {
+          'reply_to': this.state.Name,
+          'from_name': this.state.Name,
+          'message_html': this.state.Message,
+          'email_address': this.state.Email,
+          'phone_number': this.state.PhoneNumber,
+          'subject': this.state.Subject,
+      }
+    } ).then(res=> {
+      alert('Your mail is sent!');
+  }).catch(err => {
+      alert('Sorry an error occured, please try sending email again');
+  })
+
+document.getElementById('Contact').reset();
+}
 
   render(){
     return (
@@ -47,31 +59,31 @@ class Contact extends React.Component {
       </div>
       <div className="col-md-6">
           <div className="form-area">
-              <form role="form">
-                  <br style={{clear:"both"}}/>
-                  <h3 style={{marginBottom: "25px", textAlign: "center"}}>Lets Get in Touch!</h3>
-                  <p className="text-center">
-                      I would love to work with you. If you have any questions at all please dont hesitate to reach out to me.
-                  </p>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="name" name="name" placeholder="Name" required/>
-                  </div>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="email" name="email" placeholder="Email" required/>
-                  </div>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required/>
-                  </div>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="subject" name="subject" placeholder="Subject" required/>
-                  </div>
-                  <div className="form-group">
-                      <textarea className="form-control" type="textarea" id="message" name="message" placeholder="Message" maxLength="400" rows="7"></textarea>
-                      <span className="help-block"><p id="characterLeft" className="help-block ">You have reached the limit</p></span>
-                  </div>
+              <Form id='Contact' onSubmit={this.handleFormSubmission}>
 
-                  <button onClick={this.handleFormSubmission} type="submit" id="submit" name="submit" className="btn btn-primary pull-right" style={{backgroundColor: "black", color: "white"}}>Submit Form</button>
-              </form>
+                <FormGroup>
+                  <Input placeholder="Name" type='text' name='Name' onChange={this.handleChange} />
+                </FormGroup>
+
+                <FormGroup>
+                  <Input placeholder='Email' type='text' name='Email' onChange={this.handleChange} />
+                </FormGroup>
+
+                <FormGroup>
+                  <Input placeholder='Mobile Number' type='text' name='PhoneNumber' onChange={this.handleChange} />
+                </FormGroup>
+
+                <FormGroup>
+                  <Input placeholder='Subject' type='text' name='Subject' onChange={this.handleChange} />
+                </FormGroup>
+
+                <FormGroup>
+                  <Input rows='7' className='form-control' placeholder='Message' type='textarea' name='Message' onChange={this.handleChange} />
+                </FormGroup>
+
+                <Button style={{backgroundColor: 'black', color: 'white'}} className='btn btn-primary pull-right'>SUBMIT FORM</Button>
+
+              </Form>
           </div>
       </div>
       <div className="col-md-3">
