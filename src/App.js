@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router,BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+import {Router,BrowserRouter, Route, Switch, Link, HashRouter} from 'react-router-dom';
 import logo from './logo.svg';
 import NavBar from './Components/NavBar.js';
 import Footer from './Components/Footer.js';
@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <section>
-        <BrowserRouter>
+        <HashRouter>
         <section>
         <NavBar />
           <div className="AppContainer">
@@ -30,7 +30,7 @@ class App extends Component {
           </div>
           <Footer />
           </section>
-        </BrowserRouter>
+        </HashRouter>
       </section>
     );
   }

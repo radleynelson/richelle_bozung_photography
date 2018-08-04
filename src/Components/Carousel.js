@@ -55,6 +55,7 @@ class Carousel extends React.Component{
 
               <a className="left carousel-control" href="#myCarousel" data-slide="prev">
                   <Glyphicon glyph="star" />
+
                   <span className="sr-only">Previous</span>
               </a>
               <a className="right carousel-control" href="#myCarousel" data-slide="next">
