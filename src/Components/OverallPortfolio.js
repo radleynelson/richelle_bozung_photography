@@ -58,7 +58,6 @@ class OverallPortfolio extends React.Component {
     return(
       <section>
         <div className="container">
-          <h1>Portfolio</h1>
         </div>
         <div className="row">
         {

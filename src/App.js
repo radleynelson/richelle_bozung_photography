@@ -10,6 +10,13 @@ import Contact from './Components/Contact.js';
 import About from './Components/About.js';
 import TypePortfolio from './Components/TypePortfolio.js';
 import Blog from './Components/Blog.js';
+import TransitionGroup from "react-transition-group/TransitionGroup";
+
+
+const firstChild = props => {
+  const childrenArray = React.Children.toArray(props.children);
+  return childrenArray[0] || null;
+};
 
 class App extends Component {
   render() {

@@ -8,7 +8,7 @@ class Footer extends React.Component {
     return(
       <section>
         <br/>
-        <footer className="nav navbar-default" style={{lineHeight: "100px"}}>
+        <footer className="nav navbar-default navbar-default-altered" style={{lineHeight: "100px"}}>
                 <div className="container">
                     <div className="text-center">
                         <a target="_blank" style={{color: 'black'}} href="https://www.instagram.com/photos.by.richelle/"><i className="fa fa-lg fa-instagram" aria-hidden="true" style={{marginRight: '5px',}}></i></a>
@@ -20,9 +20,9 @@ class Footer extends React.Component {
 
       <br/><br/>
         <div className="container text-center">
-            <h4 className="text-center">Phone: 801-636-1168</h4>
+
             <h4>
-                <i className="fa fa-copyright" aria-hidden="true">
+                <i style={{fontSize:'16px'}} className="fa fa-copyright" aria-hidden="true">
                     Copyright 2017 Richelle Bozung Photography. All rights reserved.
                 </i>
             </h4>

@@ -32,12 +32,11 @@ class About extends React.Component {
     return(
       <section>
         <header className="masthead" style={{backgroundImage: `url(${this.state.coverPhoto})`}}>
-          <div className="overlay"></div>
+          <div style={{background: 'none'}} className="overlay"></div>
           <div className="container">
               <div className="row">
                   <div className="col-lg-8 col-md-10 mx-auto">
                       <div className="page-heading">
-                          <h1>{this.state.title}</h1>
                           <span className="subheading">{this.state.subTitle}</span>
                       </div>
                   </div>

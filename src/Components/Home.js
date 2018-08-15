@@ -8,6 +8,9 @@ import newbornPrimary from '../images/newborn.jpg';
 import familyPrimary from '../images/family.jpg';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group';
+import ReactTransitions from 'react-transitions';
+
 
 class Home extends React.Component {
   constructor(props){
@@ -17,6 +20,9 @@ class Home extends React.Component {
       BlogOverview: "",
       Portfolios: [],
     }
+  }
+  createMarkup(){
+    return {__html: this.state.BlogOverview}
   }
   componentDidMount(){
     axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/galleries').then(res => {
@@ -44,7 +50,7 @@ class Home extends React.Component {
 
     axios.get('https://admin.richellebozungphotography.com/wp-json/wp/v2/pages/70').then(res => {
       this.setState(({
-        BlogOverview: res.data.acf.sub_title,
+        BlogOverview: res.data.content.rendered,
         HomeOverview: res.data.acf.site_summary,
         ContactMe: res.data.acf.contact_me,
       }))
@@ -56,13 +62,12 @@ class Home extends React.Component {
   render(){
     return(
       <section>
+
         <Carousel />
 
   <div className="container">
       <div className="text-center">
-          <h1>
-            {this.state.BlogOverview}
-          </h1>
+          <h3 style={{marginTop: '40px', fontStyle: 'italic'}} className='sub_title_home' dangerouslySetInnerHTML={this.createMarkup()}></h3>
           <br/>
           <h2>
               {this.state.HomeOverview}
@@ -83,10 +88,10 @@ class Home extends React.Component {
 
   <div className="container">
       <div className="text-center">
-          <h3>
+          <h3 style={{fontSize:'20px'}}>
               {this.state.ContactMe}
           </h3>
-          <Link to='/Contact'><button type="button" className="btn btn-primary outline btn-lg contactButton" style={{borderColor: 'black ', color: 'black'}}>Contact</button></Link>
+          <Link to='/Contact'><button type="button" className="btn btn-primary outline btn-lg contactButton" style={{border: 'none ', color: 'black', letterSpacing: '3px'}}>Contact</button></Link>
       </div>
   </div>
       </section>

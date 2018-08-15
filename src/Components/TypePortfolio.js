@@ -27,7 +27,7 @@ class TypePortfolio extends React.Component{
     return(
       <section>
       <div className="container">
-          <h3>{this.state.type}</h3>
+          <h3 className='portfolio_header'>{this.state.type}</h3>
           <div id="myCarousel" className="carousel slide" data-ride="carousel">
               <ol className="carousel-indicators">
                   {

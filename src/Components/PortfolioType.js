@@ -13,11 +13,11 @@ class PortfolioType extends React.Component {
                   <img src={this.props.photo}/>
               </div>
           </div>
-          <div className="col-lg-3 col-md-3">
+          <div className="col-lg-3 col-md-3 top_spacer" style={{marginTop: '85px'}}>
               <div>
-                  <h1 className="text-left">{this.props.type} </h1>
-                  <h3>{this.props.typeMessage}</h3>
-                  <h4><Link to={'/Portfolio/'+ this.props.portfolioID}>View {this.props.type} Portfolio</Link></h4>
+                  <h1 className="text-left portfolio_header">{this.props.type} </h1>
+                  <h3 className="portfolio_caption">{this.props.typeMessage}</h3>
+                  <h4><Link className="portfolio_link" to={'/Portfolio/'+ this.props.portfolioID}>View {this.props.type} Portfolio</Link></h4>
               </div>
           </div>
       </div>

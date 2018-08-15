@@ -16,16 +16,11 @@ class CarouselItem extends React.Component{
   }
   render(){
     return(
-      <div className={this.props.type}>
-          <img src={this.props.image} alt="New Born Photography" style={{width:"100%"}}/>
-          {
-            this.props.message != undefined &&
-            <div className="carousel-caption">
-                <h3 style={{color: "white"}}>{this.props.message}</h3>
-                <Link to={'/Portfolio/'+this.props.portfolioID}><button type="button" className="btn btn-primary outline btn-lg caroButton">View</button></Link>
-            </div>
-          }
 
+      <div className={this.props.type}>
+        <Link to={'/Portfolio/'+this.props.portfolioID}>
+          <img src={this.props.image} alt="New Born Photography" style={{width:"100%"}}/>
+        </Link>
       </div>
     )
   }
